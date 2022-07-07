@@ -26,7 +26,7 @@
                 <input type="text" v-model.trim="input.self">
                 <div>Your's</div>
                 <input type="text" v-model.trim="input.partner">
-                <button :disabled="room.warn || !input.self || input.partner">Submit Answer</button>
+                <button :disabled="room.warn || !input.self || !input.partner">Submit Answer</button>
                 <div v-if="room.warn" class="text-orange-800">{{ room.warn }}</div>
             </form>
         </div>

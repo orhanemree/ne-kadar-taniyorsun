@@ -1,0 +1,25 @@
+{
+  "name": "ne-kadar-taniyorsun",
+  "author": {
+    "name" : "Orhan Emre Dikicigil",
+    "email" : "orhanemre.dev@gmail.com",
+    "url" : "https://orhanemre.me/"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.3"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^5.0.4",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "^9.8.3",
+    "uuid": "^8.3.2"
+  }
+}

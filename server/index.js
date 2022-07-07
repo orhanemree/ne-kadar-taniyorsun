@@ -112,7 +112,6 @@ app.post("/create", async (req, res) => {
         await join(roomId, req.body.username, uuid);
         res.status(200).json({ ...req.body, roomId: roomId, uuid: uuid });
     } catch (err) {
-        console.log(err);
         res.status(404).json({ error: err });
     }
 });

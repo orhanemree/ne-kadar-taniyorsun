@@ -1,8 +1,21 @@
 <template>
     <a class="github" href="https://github.com/orhanemree/ne-kadar-taniyorsun">
-        <img src="https://api.iconify.design/akar-icons:github-fill.svg" alt="github icon">
+        <img class="w-6 h-6" src="https://api.iconify.design/akar-icons:github-fill.svg" alt="github icon">
     </a>
     <div class="w-screen min-h-full" v-if="room.active">
+        <div v-if="room.current == 5" class="w-full min-h-screen absolute _flex">
+            <div class="border border-black rounded p-12 bg-green-300">
+                <h2>Result 🎉</h2>
+                <ul class="w-full flex items-center justify-evenly gap-8 py-4">
+                    <li class="_flex flex-col text-xl font-bold" v-for="client in room.clients" :key="client">
+                        <div>{{ client.username }}</div>
+                        <span class="circle">{{ client.point }}</span>
+                    </li>
+                </ul>
+                <div class="text-orange-800">You can create a new room and play again, <br> if you are still in relationship :)</div>
+                <button class="mt-5"><a href="/">Return Home</a></button>
+            </div>
+        </div>
         <div class="w-full flex items-center justify-evenly p-5 sm:text-lg text-base">
             <div class="_flex gap-2">
                 Room ID: 
@@ -26,7 +39,7 @@
                 <input type="text" v-model.trim="input.self">
                 <div>Your's</div>
                 <input type="text" v-model.trim="input.partner">
-                <button :disabled="room.warn || !input.self || !input.partner">Submit Answer</button>
+                <button :disabled="room.warn || !input.self || !input.partner || room.current == 5">Submit Answer</button>
                 <div v-if="room.warn" class="text-orange-800">{{ room.warn }}</div>
             </form>
         </div>
@@ -100,7 +113,6 @@ export default {
                 localStorage.setItem("nkt_user_uuid", res.uuid);
                 onValue(ref(getDatabase(), `/room/${res.roomId}`), snapshot => {
                     const data = snapshot.val();
-                    console.log(data);
                     this.room.clients = data.client;
                     this.room.current = data.current;
                     this.room.question = data.question;
@@ -119,7 +131,6 @@ export default {
                     body: JSON.stringify({...this.input, uuid: localStorage.getItem("nkt_user_uuid")})
                 });
                 res = await res.json();
-                console.log(res);
                 this.room.warn = res.message === "waiting" ? "Waiting for your partner." : false;
                 this.input.self = "";
                 this.input.partner = "";
@@ -140,11 +151,6 @@ export default {
     p-3
 }
 
-.github img{
-    @apply
-    w-8 h-8
-}
-
 .circle{
     @apply
     flex
@@ -153,5 +159,6 @@ export default {
     p-5
     rounded-[50%]
     bg-green-300
+    border border-black
 }
 </style>

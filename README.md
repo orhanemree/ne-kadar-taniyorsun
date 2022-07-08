@@ -1,42 +1,19 @@
-# Nuxt 3 Minimal Starter
+# 🙊Ne Kadar Tanıyorsun
+How much do you know your partner?
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## Technologies
+* Frontend: Tailwind CSS + Nuxt3
+* Backend: Express.js/Node
+* Database: Firebase Realtime Database
+* Deployment: Vercel
 
-## Setup
-
-Make sure to install the dependencies:
-
+## Development Setup
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+$ git clone https://github.com/orhanemree/ne-kadar-taniyorsun.git
+$ cd ne-kadar-taniyorsun
+$ npm i
+$ npm run dev # listening port 3000
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+## License
+* Licensed under the [MIT License](./LICENSE).

@@ -82,9 +82,9 @@ const compareAnswers = async (roomId) => {
             updates[`/room/${roomId}/question`] = await getRandomQuestions(1);
             updates[`/room/${roomId}/current`] = data.current + 1;
             updates[`/room/${roomId}/client/${clients[0][0]}/self`] = "";
-            updates[`/room/${roomId}/client/${clients[0][0]}/parent`] = "";
+            updates[`/room/${roomId}/client/${clients[0][0]}/partner`] = "";
             updates[`/room/${roomId}/client/${clients[1][0]}/self`] = "";
-            updates[`/room/${roomId}/client/${clients[1][0]}/parent`] = "";
+            updates[`/room/${roomId}/client/${clients[1][0]}/partner`] = "";
             await update(ref(db), updates);
 
             result = "success";
